@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Absensi Karyawan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sistem Absensi Karyawan</h1>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showPage('dashboard')">Dashboard</a></li>
+                <li><a href="#" onclick="showPage('absensi')">Absensi</a></li>
+                <li><a href="#" onclick="showPage('karyawan')">Data Karyawan</a></li>
+                <li><a href="#" onclick="showPage('laporan')">Laporan</a></li>
+            </ul>
+        </nav>
+        
+        <main id="main-content">
+            <!-- Dashboard Page -->
+            <div id="dashboard-page" class="page active">
+                <h2>Dashboard Absensi</h2>
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <h3>Total Karyawan</h3>
+                        <p id="total-karyawan">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Hadir Hari Ini</h3>
+                        <p id="hadir-hari-ini">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Izin Hari Ini</h3>
+                        <p id="izin-hari-ini">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Tidak Hadir</h3>
+                        <p id="tidak-hadir">0</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Absensi Page -->
+            <div id="absensi-page" class="page">
+                <h2>Absensi Karyawan</h2>
+                <div class="form-group">
+                    <label for="nip">NIP:</label>
+                    <input type="text" id="nip" placeholder="Masukkan NIP Karyawan">
+                </div>
+                
+                <div class="form-group">
+                    <label for="status-absensi">Status:</label>
+                    <select id="status-absensi">
+                        <option value="hadir">Hadir</option>
+                        <option value="izin">Izin</option>
+                        <option value="sakit">Sakit</option>
+                        <option value="alpha">Alpha</option>
+                    </select>
+                </div>
+                
+                <button onclick="simpanAbsensi()">Simpan Absensi</button>
+                
+                <div class="form-group">
+                    <h3>Absensi Hari Ini</h3>
+                    <table id="tabel-absensi">
+                        <thead>
+                            <tr>
+                                <th>NIP</th>
+                                <th>Nama</th>
+                                <th>Status</th>
+                                <th>Waktu</th>
+                            </tr>
+                        </thead>
+                        <tbody id="isi-tabel-absensi">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Data Karyawan Page -->
+            <div id="karyawan-page" class="page">
+                <h2>Data Karyawan</h2>
+                <div class="form-group">
+                    <label for="nip-karyawan">NIP:</label>
+                    <input type="text" id="nip-karyawan" placeholder="Masukkan NIP">
+                </div>
+                
+                <div class="form-group">
+                    <label for="nama-karyawan">Nama:</label>
+                    <input type="text" id="nama-karyawan" placeholder="Masukkan Nama">
+                </div>
+                
+                <div class="form-group">
+                    <label for="jabatan">Jabatan:</label>
+                    <input type="text" id="jabatan" placeholder="Masukkan Jabatan">
+                </div>
+                
+                <div class="form-group">
+                    <label for="departemen">Departemen:</label>
+                    <input type="text" id="departemen" placeholder="Masukkan Departemen">
+                </div>
+                
+                <button onclick="simpanKaryawan()">Simpan Karyawan</button>
+                
+                <div class="form-group">
+                    <h3>Daftar Karyawan</h3>
+                    <table id="tabel-karyawan">
+                        <thead>
+                            <tr>
+                                <th>NIP</th>
+                                <th>Nama</th>
+                                <th>Jabatan</th>
+                                <th>Departemen</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="isi-tabel-karyawan">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Laporan Page -->
+            <div id="laporan-page" class="page">
+                <h2>Laporan Absensi</h2>
+                <div class="form-group">
+                    <label for="tanggal-laporan">Tanggal:</label>
+                    <input type="date" id="tanggal-laporan">
+                </div>
+                
+                <button onclick="tampilkanLaporan()">Tampilkan Laporan</button>
+                
+                <div class="form-group">
+                    <h3>Hasil Laporan</h3>
+                    <table id="tabel-laporan">
+                        <thead>
+                            <tr>
+                                <th>NIP</th>
+                                <th>Nama</th>
+                                <th>Status</th>
+                                <th>Waktu</th>
+                            </tr>
+                        </thead>
+                        <tbody id="isi-tabel-laporan">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
