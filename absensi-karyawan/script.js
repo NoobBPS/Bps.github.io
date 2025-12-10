@@ -9,6 +9,14 @@ function showPage(pageName) {
         page.classList.remove('active');
     });
     
+    // Hapus kelas aktif dari semua link navigasi
+    document.querySelectorAll('nav ul li a').forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    // Tambahkan kelas aktif pada link yang dipilih
+    document.querySelector(`nav ul li a[onclick="showPage('${pageName}')"]`).classList.add('active');
+    
     // Tampilkan halaman yang dipilih
     document.getElementById(pageName + '-page').classList.add('active');
     
